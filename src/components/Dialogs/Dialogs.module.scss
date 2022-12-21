@@ -1,0 +1,31 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+
+.dialogList {
+  height: 100vh;
+  border-right: 1px solid #1DB954;
+}
+
+.dialog {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+
+  &:hover{
+    background: #212121;
+  }
+}
+
+.dialogPhoto {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  border-radius: 50%;
+  background: #1DB954;
+}
+
+.messages {
+  padding: 15px;
+}
