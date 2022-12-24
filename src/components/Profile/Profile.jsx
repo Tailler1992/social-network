@@ -1,18 +1,13 @@
 import React from 'react';
 import MyPosts from './MyPost/MyPosts';
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-import cover from '../../assets/img/cover.jpg';
-
-import style from './Profile.module.scss';
 
 const Profile = () => {
   return (
     <>
-      <div className={style.info}>
-        <img className={style.cover} src={cover} alt="" />
-        <div className={style.avatar}></div>
-      </div>
-      <MyPosts />
+      <ProfileInfo/>
+      <MyPosts/>
     </>
   );
 };
