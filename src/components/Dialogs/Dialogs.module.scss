@@ -13,7 +13,7 @@
   align-items: center;
   padding: 15px;
 
-  &:hover{
+  &:hover {
     background: #212121;
   }
 }
@@ -27,5 +27,8 @@
 }
 
 .messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 15px;
 }
