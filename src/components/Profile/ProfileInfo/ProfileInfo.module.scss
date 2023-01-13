@@ -1,17 +1,43 @@
-.info {
-  position: relative;
-}
 
 .cover {
+  padding: 30px;
+  display: flex;
   border-radius: 16px;
+  height: 280px;
+  width: 800px;
+  background: url("../../../assets/img/cover.jpg") no-repeat;
+}
+
+.img {
+  display: block;
+  margin-right: 30px;
+  object-fit: cover;
 }
 
 .avatar {
-  position: absolute;
-  top: 30px;
-  left: 30px;
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
+}
+
+.plug {
   background-color: #FFFFFF;
   width: 200px;
   height: 200px;
-  border-radius: 100px;
+  border-radius: 25px;
+}
+
+
+.fullName {
+  margin: 20px 0 5px 0;
+  font-size: 26px;
+  text-transform: capitalize;
+}
+
+.about {
+  margin-bottom: 30px;
+}
+
+.job {
+  margin-bottom: 5px;
 }

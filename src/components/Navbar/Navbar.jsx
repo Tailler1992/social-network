@@ -16,7 +16,7 @@ const Navbar = () => {
           <li>
             <NavLink
                 className={({isActive}) => isActive ? `${s.activeStyle}` : undefined}
-                to="/">
+                to="user/my-page">
               <img src={home} alt=""/>
               <span>Домой</span>
             </NavLink>
@@ -51,6 +51,14 @@ const Navbar = () => {
                 to="settings">
               <img src={music} alt=""/>
               <span>Настройки</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({isActive}) => isActive ? `${s.activeStyle}` : undefined}
+              to="user-search">
+              <img src={music} alt=""/>
+              <span>Поиск</span>
             </NavLink>
           </li>
         </ul>

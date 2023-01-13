@@ -1,0 +1,13 @@
+.container {
+  margin-bottom: 40px;
+}
+
+.skeleton {
+  height: 50px;
+  width: 540px;
+  margin-top: 10px;
+  background-color: #676767;
+  &:not(:last-child){
+    margin-bottom: 20px;
+  }
+}

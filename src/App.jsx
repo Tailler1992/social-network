@@ -3,6 +3,7 @@ import {Route, Routes} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
+import UserSearch from "./components/UserSearch/UserSearch";
 
 import s from "./App.module.scss";
 
@@ -12,8 +13,9 @@ function App() {
         <Navbar/>
         <div className={s.content}>
           <Routes>
-            <Route path={"/"} element={<Profile/>}/>
+            <Route path={"/user/:id"} element={<Profile/>}/>
             <Route path={"/dialogs"} element={<Dialogs/>}/>
+            <Route path={"/user-search"} element={<UserSearch/>}/>
           </Routes>
 
         </div>
