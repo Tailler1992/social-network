@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 
 import {useSelector, useDispatch} from 'react-redux';
-import {fetchUsers} from '../../features/usersSlice';
+import {fetchUsers} from '../../redux/features/usersSlice';
 
 import s from './UserSearch.module.scss';
 import User from './User/User';
@@ -21,8 +21,8 @@ const UserSearch = () => {
         <ul className={s.container}>
           {isFetching
             ? [...new Array(count)].map((_, index) => <li key={index} className={s.skeleton}></li>)
-            : users.map(({id, name, photos, status}) =>
-              <User key={id} id={id} name={name} photo={photos.large} status={status}/>)}
+            : users.map(({id, name, photos, status, followed}) =>
+              <User key={id} id={id} name={name} photo={photos.large} status={status} followed={followed}/>)}
         </ul>
         <Pagination currentPage={page} numberOfDisplayedItems={count} totalElements={usersCount}/>
       </>

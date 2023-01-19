@@ -16,7 +16,7 @@ const Navbar = () => {
           <li>
             <NavLink
                 className={({isActive}) => isActive ? `${s.activeStyle}` : undefined}
-                to="user/my-page">
+                to="user/2">
               <img src={home} alt=""/>
               <span>Домой</span>
             </NavLink>

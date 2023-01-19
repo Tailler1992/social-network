@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import s from './Chat.module.scss';
 import {v4} from 'uuid';
-import {setNewMessage} from '../../../features/messagesSlice';
+import {setNewMessage} from '../../../redux/features/messagesSlice';
 import {useDispatch} from 'react-redux';
 
 const Chat = () => {

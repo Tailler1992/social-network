@@ -1,15 +1,16 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import axios from 'axios';
+import {userAPI} from '../../utils/api';
 
 export const fetchUsers = createAsyncThunk(
   'users/fetchUsersStatus',
   async (arg, thunkAPI) => {
     const {page, count} = arg;
-    const url = 'https://social-network.samuraijs.com/api/1.0/users';
 
-    const {data} = await axios.get(`${url}?page=${page}&count=${count}`);
-    thunkAPI.dispatch(setPagesCount(data.totalCount))
-    return data.items;
+    const response = await userAPI.getUsers(page, count);
+    const {totalCount} = response;
+    thunkAPI.dispatch(setPagesCount(totalCount));
+
+    return response.items;
   }
 );
 
@@ -32,7 +33,7 @@ export const usersSlice = createSlice({
     },
     setPagesCount: (state, action) => {
       state.usersCount = action.payload;
-    },
+    }
   },
 
   extraReducers: (builder) => {

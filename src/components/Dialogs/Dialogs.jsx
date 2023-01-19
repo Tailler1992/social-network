@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
-
+import { useNavigate } from "react-router-dom";
 import s from './Dialogs.module.scss';
 
 import Dialog from './Dialog/Dialog';
@@ -16,6 +16,14 @@ const dialogsData = [
 
 const Dialogs = () => {
   const messages = useSelector((state) => state.messagesSlice);
+  const {isAuth} = useSelector((state) => state.authSlice);
+  const navigate = useNavigate();
+
+  useEffect(()=> {
+    if (!isAuth) {
+      navigate("/login");
+    }
+  }, [isAuth])
 
   return (
     <div className={s.dialogs}>

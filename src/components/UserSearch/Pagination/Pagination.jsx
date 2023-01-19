@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import s from './Pagination.module.scss';
 import {useDispatch} from 'react-redux';
-import {fetchUsers} from '../../../features/usersSlice';
+import {fetchUsers} from '../../../redux/features/usersSlice';
 
 const Pagination = (
     {

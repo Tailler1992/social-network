@@ -1,8 +1,9 @@
 import React from 'react';
 import cover from '../../../assets/img/cover.jpg';
 import s from './ProfileInfo.module.scss';
+import ProfileStatus from './ProfileStatus';
 
-const ProfileInfo = ({data}) => {
+const ProfileInfo = ({data, status}) => {
   const {aboutMe, contacts, fullName, lookingForAJob, lookingForAJobDescription, photos, userId} = data;
   const avatar = photos.large;
 
@@ -23,7 +24,7 @@ const ProfileInfo = ({data}) => {
             </div>
           }
         </div>
-
+        <ProfileStatus status={status}/>
       </div>
     </div>
   );
