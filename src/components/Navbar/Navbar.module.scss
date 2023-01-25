@@ -1,4 +1,6 @@
 .nav {
+  display: flex;
+  flex-direction: column;
   background-color: #212121;
   flex: 0 0 270px;
 }
@@ -20,7 +22,7 @@
     font-size: 16px;
     transition: opacity .1s ease-in-out;
 
-    &:hover{
+    &:hover {
       opacity: 0.7;
     }
   }
@@ -37,12 +39,16 @@
       height: 100%;
       content: "";
       background: #1DB954;
-      border-radius: 3px 0px 0px 3px;
+      border-radius: 3px 0 0 3px;
     }
   }
 
-  img {
+  .icon {
+    display: flex;
     margin-right: 15px;
+    padding: 3px;
+    background-color: #7a7a7a;
+    border-radius: 5px;
   }
 }
 

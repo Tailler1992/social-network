@@ -1,30 +1,37 @@
 import {useEffect} from 'react';
-
 import {useSelector, useDispatch} from 'react-redux';
 import {fetchUsers} from '../../redux/features/usersSlice';
 
-import s from './UserSearch.module.scss';
 import User from './User/User';
 import Pagination from './Pagination/Pagination';
 
+import s from './UserSearch.module.scss';
+
 const UserSearch = () => {
-    const {users, page, count, usersCount, isFetching} = useSelector((state) => state.usersSlice);
+    const {users, isFetching, pagination} = useSelector((state) => state.usersSlice);
+    const {page, count, usersCount} = pagination;
     const dispatch = useDispatch();
 
     useEffect(() => {
-
       dispatch(fetchUsers({page, count}));
-    }, [count, page, dispatch]);
+    }, [page]);
+
+    const skeleton = [...new Array(count)].map((_, index) => <li key={index} className={s.skeleton}></li>);
 
     return (
       <>
         <ul className={s.container}>
           {isFetching
-            ? [...new Array(count)].map((_, index) => <li key={index} className={s.skeleton}></li>)
+            ? skeleton
             : users.map(({id, name, photos, status, followed}) =>
               <User key={id} id={id} name={name} photo={photos.large} status={status} followed={followed}/>)}
         </ul>
-        <Pagination currentPage={page} numberOfDisplayedItems={count} totalElements={usersCount}/>
+        {isFetching
+          ? <div> Загрузка</div>
+          : <div className={s.pgContainer}>
+            <Pagination currentPage={page} numberOfDisplayedItems={count} totalElements={usersCount}/>
+          </div>
+        }
       </>
     );
   }

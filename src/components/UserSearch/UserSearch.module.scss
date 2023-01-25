@@ -1,4 +1,5 @@
 .container {
+  flex: 1;
   margin-bottom: 40px;
 }
 
@@ -10,4 +11,10 @@
   &:not(:last-child){
     margin-bottom: 20px;
   }
+}
+
+.pgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

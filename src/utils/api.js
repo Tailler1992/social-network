@@ -2,6 +2,12 @@ import axios from 'axios';
 
 const url = 'https://social-network.samuraijs.com/api/1.0/';
 
+const instance = axios.create({
+  baseURL: 'https://social-network.samuraijs.com/api/1.0/',
+  withCredentials: true,
+  headers: {'API-KEY': 'b4996373-7bf1-42b8-9732-37c74f3aed31'}
+});
+
 const userAPI = {
   async getUsers(currentPage, pageSize) {
     const {data} = await axios.get(`${url}users?page=${currentPage}&count=${pageSize}`,
@@ -11,21 +17,11 @@ const userAPI = {
     return data;
   },
   async postFollow(userID) {
-    const {data} = await axios.post(`${url}follow/${userID}`, {}, {
-      withCredentials: true,
-      headers: {
-        'API-KEY': 'b4996373-7bf1-42b8-9732-37c74f3aed31'
-      }
-    });
+    const {data} = await instance.post(`follow/${userID}`);
     return data;
   },
   async deleteFollow(userID) {
-    const {data} = await axios.post(`${url}follow/${userID}`, {}, {
-      withCredentials: true,
-      headers: {
-        'API-KEY': 'b4996373-7bf1-42b8-9732-37c74f3aed31'
-      }
-    });
+    const {data} = await instance.post(`follow/${userID}`);
     return data;
   }
 };
@@ -40,14 +36,8 @@ const profileApi = {
     return data;
   },
   async updateStatus(status) {
-    await axios.put(`${url}profile/status/`, {status: status}, {
-      withCredentials: true,
-      headers: {
-        'API-KEY': 'b4996373-7bf1-42b8-9732-37c74f3aed31'
-      }
-    });
-
-  },
+    await instance.put(`profile/status/`, {status: status});
+  }
 };
 
 const authApi = {
@@ -57,6 +47,14 @@ const authApi = {
         withCredentials: true
       });
     return data;
+  },
+
+  login(email, password, rememberMe) {
+    return instance.post('auth/login', {email, password, rememberMe});
+  },
+
+  logout() {
+    return instance.delete('auth/login');
   }
 };
 
